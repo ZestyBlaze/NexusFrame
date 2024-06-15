@@ -1,6 +1,7 @@
 plugins {
-    id 'fabric-loom' version '1.5-SNAPSHOT'
+    id 'fabric-loom' version '1.6-SNAPSHOT'
     id 'maven-publish'
+    id "me.modmuss50.mod-publish-plugin" version "0.4.5"
 }
 
 version = project.mod_version
@@ -35,7 +36,7 @@ processResources {
     }
 }
 
-def targetJavaVersion = 17
+def targetJavaVersion = 21
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
@@ -73,6 +74,28 @@ publishing {
             authentication {
                 basic(BasicAuthentication)
             }
+        }
+    }
+}
+
+publishMods {
+    changelog = file("CHANGELOG.md").text.replace("@VERSION@", project.mod_version)
+    type = STABLE
+    modLoaders.add("fabric")
+    modLoaders.add("quilt")
+    file = remapJar.archiveFile
+    displayName = "NexusFrame ${project.mod_version}"
+
+    modrinth("modrinth") {
+        featured = true
+        accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+        projectId = "Dk0J1riW"
+        minecraftVersions.add("1.21")
+        requires {
+            slug = "fabric-api"
+        }
+        embeds {
+            slug = "polymer"
         }
     }
 }

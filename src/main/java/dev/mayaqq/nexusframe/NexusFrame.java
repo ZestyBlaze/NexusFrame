@@ -16,6 +16,6 @@ public class NexusFrame implements ModInitializer {
     }
 
     public static Identifier id(String path) {
-        return new Identifier("nexusframe", path);
+        return Identifier.of("nexusframe", path);
     }
 }
