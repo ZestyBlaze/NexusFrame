@@ -1,7 +1,6 @@
 # `NexusFrame`
 
 [![Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/available/modrinth_64h.png)](https://modrinth.com/mod/nexusframe/versions)
-[![Curseforge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/available/curseforge_64h.png)](https://www.curseforge.com/minecraft/mc-mods/nexusframe)
 [![Github](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/available/github_64h.png)](https://github.com/MayaqqDev/nexusframe/)
 
 
@@ -18,23 +17,13 @@ You can use the modrinth maven to add this to your project. Add this to your rep
 
 ```
 repositories {
-    exclusiveContent {
-        forRepository {
-            maven {
-                name = "Modrinth"
-                url = "https://api.modrinth.com/maven"
-            }
-        }
-        filter {
-            includeGroup "maven.modrinth"
-        }
-    }
+    maven { url = "https://maven.is-immensely.gay" }
 }
 ```
-And this to your dependencies. Don't forget to change "VERSION" to the latest released version number on modrinth. [Click here for more information about Modrinth Maven](https://docs.modrinth.com/docs/tutorials/maven/)
+And this to your dependencies. Don't forget to change "VERSION" to the latest released version number which can be found [here](https://maven.is-immensely.gay/#/releases/dev/mayaqq/NexusFrame)
 ```
 dependencies {
-    modImplementation "maven.modrinth:nexusframe:VERSION"
+    modImplementation "dev.mayaqq:NexusFrame:VERSION"
 }
 ```
 For example implementation, you can look at [the test mod code](https://github.com/MayaqqDev/NexusFrame/blob/testmod/src/main/java/dev/mayaqq/nexustestmod/mixin/AnvilBlockMixin.java)
