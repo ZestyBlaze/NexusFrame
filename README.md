@@ -17,7 +17,7 @@ You can use the modrinth maven to add this to your project. Add this to your rep
 
 ```
 repositories {
-    maven { url = "https://maven.is-immensely.gay" }
+    maven { url = "https://maven.is-immensely.gay/releases" }
 }
 ```
 And this to your dependencies. Don't forget to change "VERSION" to the latest released version number which can be found [here](https://maven.is-immensely.gay/#/releases/dev/mayaqq/NexusFrame)
