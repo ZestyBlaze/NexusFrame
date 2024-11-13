@@ -68,7 +68,6 @@ public class Multiblock {
         //find the $ in the pattern
         BlockPos corner = findOffset(mainBlockPos);
         if (corner == null) {
-            LOGGER.error("Multiblock pattern does not contain $");
             return false;
         }
 
@@ -94,9 +93,6 @@ public class Multiblock {
 
     public void preview(BlockPos mainBlockPos, World world) {
         BlockPos corner = findOffset(mainBlockPos);
-        if (corner == null) {
-            LOGGER.error("Multiblock pattern does not contain $");
-        }
 
         for (int i = 0; i < pattern.length; i++) {
             for (int j = 0; j < pattern[i].length; j++) {
@@ -149,6 +145,7 @@ public class Multiblock {
                 }
             }
         }
+        LOGGER.error("Multiblock pattern does not contain $");
         return null;
     }
 
