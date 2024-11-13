@@ -115,6 +115,7 @@ public class Multiblock {
                 }
             }
         }
+        previewing = !previewing;
     }
 
     public void rotate() {
